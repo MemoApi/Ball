@@ -12,13 +12,16 @@ public class GameManager : MonoBehaviour
 
     public GameObject PausePanel;
     public GameObject InGamePanel;
+    public GameObject FinishGamePanel;
     public TextMeshProUGUI InGameScoreText;
+    public TextMeshProUGUI FinishGameScoreText;
 
     private void OnEnable()
     {
         EventManager.CoinCollided += ScoreUp;
+        EventManager.GameFinished += LevelFinished;
         EventManager.ObstacleCollided += ResetScore;
-        EventManager.GameFinished += NextLevel;
+
     }  
     private void Start()
     {
@@ -28,6 +31,7 @@ public class GameManager : MonoBehaviour
 
         InGamePanel.SetActive(true);
         PausePanel.SetActive(false);
+        FinishGamePanel.SetActive(false);
        
     }
     private void ResetScore()
@@ -39,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         score++;
         InGameScoreText.text = score.ToString();
+        FinishGameScoreText.text = score.ToString();
     }
     public void PauseGame()
     {
@@ -67,13 +72,17 @@ public class GameManager : MonoBehaviour
         
     }
 
-
+    void LevelFinished()
+    {
+        FinishGamePanel.SetActive(true);
+    }
 
     private void OnDisable()
     {
         EventManager.ObstacleCollided -= ResetScore;
         EventManager.CoinCollided -= ScoreUp;
-        EventManager.GameFinished -= NextLevel;
+        EventManager.GameFinished -= LevelFinished;
+        
 
     }
 
