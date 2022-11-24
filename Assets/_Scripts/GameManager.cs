@@ -4,9 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class GameManager : MonoBehaviour
-{    
+{
+
+    // laser pool oluþturuldu
+    // laser atma iþlemi yapýldý
+    // laser Triggerdaki sorun çözüldü
+
+
+    // ilk üç level hazýrlanacak
+    // sonsuz level için hazýrlýklar yapýlacak
+    // ana ekran tasarlanacak
+    // lazer ateþleme sesi eklenecek
+    // altýn toplama ve ölme efektleri eklenecek
+
+
+    
 
     private int score;
 
@@ -25,6 +40,8 @@ public class GameManager : MonoBehaviour
     }  
     private void Start()
     {
+       
+        
         Time.timeScale = 1;
         score = 0;
         InGameScoreText.text = score.ToString();
@@ -34,6 +51,11 @@ public class GameManager : MonoBehaviour
         FinishGamePanel.SetActive(false);
        
     }
+
+    
+
+    
+
     private void ResetScore()
     {
         score = 0;
@@ -75,6 +97,7 @@ public class GameManager : MonoBehaviour
     void LevelFinished()
     {
         FinishGamePanel.SetActive(true);
+        InGamePanel.SetActive(false);
     }
 
     private void OnDisable()
