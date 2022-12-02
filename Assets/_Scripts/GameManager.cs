@@ -9,16 +9,11 @@ using System;
 public class GameManager : MonoBehaviour
 {
 
-    // laser pool oluþturuldu
-    // laser atma iþlemi yapýldý
-    // laser Triggerdaki sorun çözüldü
 
-
-    // ilk üç level hazýrlanacak
+   
     // sonsuz level için hazýrlýklar yapýlacak
-    // ana ekran tasarlanacak
-    // lazer ateþleme sesi eklenecek
-    // altýn toplama ve ölme efektleri eklenecek
+    // sonsuz level kaldý
+    // laser ateþleme sesi yapýlabilir   
 
 
     
@@ -83,6 +78,13 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+
+    }
+
     public void ExitGame() => Application.Quit();
     public void NextLevel()
     {
@@ -98,6 +100,7 @@ public class GameManager : MonoBehaviour
     {
         FinishGamePanel.SetActive(true);
         InGamePanel.SetActive(false);
+        Time.timeScale = 0;
     }
 
     private void OnDisable()

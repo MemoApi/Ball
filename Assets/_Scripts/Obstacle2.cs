@@ -11,14 +11,14 @@ public class Obstacle2 : MonoBehaviour
     private void Start()
     {
         randomStart = Random.Range(1, 3);
-        mapLimit = 6f;
-        speed = 1;
+        mapLimit = 6.5f;
+        speed = 1.5f;
     }
-
+    //6.5
     private void Update()
     {
         Vector3 pos = transform.position;
-        pos.y = Mathf.Abs(Mathf.Sin(Time.time * speed * randomStart) * mapLimit) + 1.25f;
+        pos.x = Mathf.Sin(Time.time * speed * randomStart) * mapLimit;
         transform.position = pos;
     }
 

@@ -8,7 +8,7 @@ public class LaserLauncher : MonoBehaviour
 
 
     LaserPool laserPool;
-    float shootRate = .5f;
+    float shootRate = 2.4f;
 
     private void Start()
     {
@@ -16,10 +16,6 @@ public class LaserLauncher : MonoBehaviour
 
         StartCoroutine(Shoot(shootRate));
     }
-
-
-   
-
 
     IEnumerator Shoot(float shootRate)
     {
